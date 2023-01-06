@@ -1,20 +1,25 @@
-//clase es el molde
-//instancia es el objeto que se crea en una clase
-//encapsulamiento: solo muestra lo que necesitamos y encierra lo que no necesitamos
-
-//importar la clase
-import {cuentaCorriente} from './cuentaCorriente.js';
 import {Cliente} from './cliente.js';
+import { cuenta } from './cuentas/cuenta.js'; 
+import { cuentaCorriente } from './cuentas/cuentaCorriente.js';
+import { cuentaAhorro } from './cuentas/cuentaAhorro.js';
+import { cuentaNomina } from './cuentas/cuentaNomina.js';
+import { empleado} from './Empleados/empleado.js';
+import { director } from './Empleados/director.js';
+import { gerente} from './Empleados/gerente.js';
+import { sistemaAutenticacion } from './sistemaAutenticacion.js';
 
-//creamos las instancias
 const client = new Cliente('Leonardo','123234','123224');
-const cliente2 = new Cliente('Maria','123235','123225');
-const cuentaLeonardo = new cuentaCorriente('1',client,'001');
-const cuentaMaria = new cuentaCorriente('002',cliente2,'2');
+client.asignarClave('1111');
+console.log(sistemaAutenticacion.login(client,'1111'));
 
-let saldo = cuentaLeonardo.verSaldo();
-saldo=cuentaLeonardo.depositoCuenta(150);
-console.log(cuentaMaria.getCliente);
-console.log(cuentaLeonardo.getCliente);
-console.log(cuentaCorriente.cantidadCuentas);
+/*const cliente2 = new Cliente('Maria','123235','123225');
+//const cuentaSimple = new cuenta(client,'998','988',0);//intenta crear objeto de la clase 'cuenta'*/
+const employee = new empleado('Juan Perez','1234343',10000);
+employee.asignarClave('12345');
+console.log(sistemaAutenticacion.login(employee,'12345'));
 
+/*const manager = new gerente('Pedro Rivas','232344',12000);
+manager.asignarClave('6556');
+console.log(sistemaAutenticacion.login(manager,'656'));
+
+const ceo = new director('Elena Moreno','235424',15000);*/

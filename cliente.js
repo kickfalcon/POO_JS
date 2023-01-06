@@ -4,11 +4,16 @@ export class Cliente
     nombreCliente;
     dniCliente;
     rutCliente;//RFC 
+    #clave;   
     
     constructor(nombreCliente,dniCliente,rutCliente){
         this.nombreCliente = nombreCliente;
         this.dniCliente = dniCliente;
         this.rutCliente = rutCliente;
+        this.#clave = '';
     }
+
+    asignarClave(clave){    this.#clave = clave;    }
+    autenticable(clave){    return clave == this.#clave;    }
 }
 
